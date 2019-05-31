@@ -1,0 +1,31 @@
+body {
+    background-color: #FBFCDE;
+}
+
+#col-left {
+    position: fixed;
+    background-color: #360D0D;
+    top: 0;
+    height: 100%;
+}
+
+#name {
+    border: none;
+    border-bottom: 2px solid #1C4E68;
+    border-radius: 0px;
+    background-color: #360D0D;
+    width: 95%;
+    margin-left: 12px;
+    color: white;
+    font-family: "Montserrat";
+    padding-bottom: 0px;
+}
+
+#name[type=text]:focus {
+    border: none;
+    border-bottom: 3px solid #1C4E68;
+    box-shadow: none;
+    color: white;
+    font-family: "Montserrat";
+}
+
