@@ -9,12 +9,46 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9cf451cb2e.js"></script>
 </head>
 
 <body>
-    <div class="row">
-        <div id="col-left" class="col-md-3">
-            <input id="name" type="text" class="form-control">
+    <div id="col-left" class="col-md-3 form-task">
+        <img src="logo.png" id="logo" class="pl-3">
+        <form>
+            <input id="name" type="text" placeholder="How is it called?" class="form-control input-form">
+            <div>
+                <label for="name" class="pl-3"><i class="fas fa-pencil-alt"></i> Task name</label>
+            </div>
+            <input id="date" type="date" placeholder="When is the due date?" class="form-control input-form">
+            <div>
+                <img src="schedule.png" class="pl-3 limgs">
+                <label for="date">Deadline</label>
+            </div>
+            <select id="type">
+                <option value="default">Select type</option>
+                <option value="homework">Homework</option>
+                <option value="office">Office</option>
+                <option value="chore">Chores</option>
+                <option value="appt">Appointments</option>
+                <option value="social">Social</option>
+                <option value="social">Other</option>
+            </select>
+            <div>
+                <img src="puzzle.png" id="puzzle" class="pl-3 limgs">
+                <label for="type">Type</label>
+            </div>
+            <div>
+                <button id="btnAdd" type="button" class="float-right">Add</button>
+            </div>
+        </form>
+    </div>
+    <div id="rowBody" class="row float-right">
+        <div class="col-md-12 pt-3 pb-3">
+            <div class="d-flex justify-content-center">
+                <h1 id="header">CHECKLIST</h1>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

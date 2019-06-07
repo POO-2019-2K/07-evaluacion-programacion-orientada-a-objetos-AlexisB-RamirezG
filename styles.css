@@ -9,23 +9,91 @@ body {
     height: 100%;
 }
 
-#name {
+.input-form {
     border: none;
     border-bottom: 2px solid #1C4E68;
     border-radius: 0px;
     background-color: #360D0D;
     width: 95%;
     margin-left: 12px;
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
     font-family: "Montserrat";
     padding-bottom: 0px;
 }
 
-#name[type=text]:focus {
+.input-form[type=text]:focus {
     border: none;
     border-bottom: 3px solid #1C4E68;
     box-shadow: none;
     color: white;
     font-family: "Montserrat";
+    background-color: #360D0D;
 }
 
+#logo {
+    width: 100%;
+}
+
+label {
+    color: white;
+    font-family: "Montserrat";
+    font-size: 20px;
+    
+    bottom: 0;
+}
+
+.input-form[type=date]:focus {
+    border: none;
+    border-bottom: 3px solid #1C4E68;
+    box-shadow: none;
+    color: white;
+    font-family: "Montserrat";
+    background-color: #360D0D;
+}
+
+.input-form[type=text]::placeholder {
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+select {
+    margin-top: 12px;
+    display: block;
+    width: 95%;
+    margin-left: 15px;
+    padding-left: 6px;
+    border: none;
+    border-bottom: 3px solid #1C4E68;
+    box-shadow: none;
+    color: rgba(255, 255, 255);
+    font-family: "Montserrat";
+    background-color: #360D0D;
+}
+
+.limgs {
+    width: 12%;
+    right: 0;
+}
+
+#puzzle {
+    padding-bottom: 7px;
+}
+
+#btnAdd {
+    border-radius: 250px;
+    border: none;
+    width: 20%;
+    font-size: 17px;
+    background-color: #1C4E68;
+    color:white;
+}
+
+#rowBody {
+    width: 76%;
+}
+
+#header {
+    font-family: "Montserrat";
+    font-weight: bold;
+    color: #360D0D;
+}
