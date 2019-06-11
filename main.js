@@ -9,7 +9,7 @@ class Main {
         let agenda = new Agenda(); 
 
         console.log(agenda.getTasks());
-
+        
         list.agenda = agenda;
 
         document.querySelector("#btnAdd").addEventListener("click", () => {
@@ -20,7 +20,7 @@ class Main {
                 let date = document.querySelector("#date").value;
                 date = date.split("-");
                 let dueDate = new Date(date[0], date[1]-1, date[2]);
-
+                console.log(dueDate);
                 let objTask = {
                     name,
                     dueDate
@@ -41,9 +41,7 @@ class Main {
                 dL = task.getDaysLeft();
                 
                 let taskToTable = agenda.addTask(objTask, sDueDate, dL);
-                //list.printTask(taskToTable);
-
-
+                list.printTask(taskToTable);
             }
 
             form.classList.add("was-validated");

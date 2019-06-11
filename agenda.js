@@ -1,3 +1,5 @@
+import Task from "./task.js";
+
 export default class Agenda {
     constructor() {
         this._tasks = [];
@@ -13,7 +15,7 @@ export default class Agenda {
 
     findTask(task) {
         let foundAt = -1;
-        if(this._tasks === null) {
+        if (this._tasks === null) {
             return foundAt;
         }
         this._tasks.forEach((e, index) => {
@@ -40,12 +42,25 @@ export default class Agenda {
 
     getTasks() {
         let tasks = JSON.parse(localStorage.getItem("tasks"));
-        console.log(tasks);
-        if(tasks === null) {
+        if (tasks === null) {
             this._tasks = [];
             return this._tasks;
         }
         this._tasks = tasks;
+        this._tasks.forEach((e, index) => {
+            e.dueDate = new Date(e.dueDate);
+            this._getData(new Task (e), index);
+        });
         return this._tasks;
+    }
+
+    _getData(e, index) {
+        e.daysLeft = e.getDaysLeft();
+        let objTask = {
+            name: e.name,
+            dueDate: e.dueDate,
+            daysLeft: e.daysLeft
+        }
+        this._tasks.splice(index, 1, objTask);
     }
 }
