@@ -42,7 +42,7 @@ class Main {
                 dL = task.getDaysLeft();
                 
                 let taskToTable = agenda.addTask(objTask, dL);
-                list.printTask(task);
+                list.printTask();
             }
 
             form.classList.add("was-validated");

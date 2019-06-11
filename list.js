@@ -25,12 +25,9 @@ export default class List {
         this._numberTasks = 0;
     }
 
-    printTask(task) {
-        this._addToTable(task);
-        window.Swal.fire({
-            type: "success",
-            title: "Contact added!",
-        });
+    printTask() {
+        this._agenda.sortByDaysLeft();
+        this.printSaved();
     }
 
     _addToTable(task) {
