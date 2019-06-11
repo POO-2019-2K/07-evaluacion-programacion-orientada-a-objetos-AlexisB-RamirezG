@@ -1,5 +1,5 @@
 export default class Agenda {
-    constructor(tableAgenda, taskClass) {
+    constructor() {
         this._tasks = [];
     }
 }
