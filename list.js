@@ -30,6 +30,11 @@ export default class List {
         this.printSaved();
     }
 
+    printByName() {
+        this._agenda.sortByName();
+        this.printSaved();
+    }
+
     _addToTable(task) {
         let row = this._tableAgenda.insertRow(-1),
             cell = row.insertCell(0);

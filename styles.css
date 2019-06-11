@@ -139,3 +139,18 @@ td {
     border-radius: 1000px;
     color: white;
 }
+
+#sortLabel {
+    color: #360D0D;
+}
+
+#btnDL, #btnName {
+    background-color: #360D0D;
+    border-radius: 1000px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#btnDL {
+    margin-left: 10px;
+}

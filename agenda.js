@@ -43,6 +43,23 @@ export default class Agenda {
         return this._contacts;
     }
 
+    sortByName() {
+        this.getTasks();
+        this._tasks.sort(function (a, b) {
+            let nameA = a.name.toLowerCase(),
+                nameB = b.name.toLowerCase();
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            return 0;
+        });
+
+        return this._tasks;
+    }
+
     findTask(task) {
         let foundAt = -1;
         if (this._tasks === null) {

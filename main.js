@@ -41,13 +41,23 @@ class Main {
                 let task = new Task(objTask),
                 dL = task.getDaysLeft();
                 
-                let taskToTable = agenda.addTask(objTask, dL);
+                agenda.addTask(objTask, dL);
                 list.printTask();
             }
 
             form.classList.add("was-validated");
-        })
+        });
+
+        document.querySelector("#btnDL").addEventListener("click", () => {
+            list.printTask();
+        });
+
+        document.querySelector("#btnName").addEventListener("click", () => {
+            list.printByName();
+        });
     }
+
+    
 }
 
 let main = new Main(); 
