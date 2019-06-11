@@ -9,8 +9,9 @@ class Main {
         let agenda = new Agenda(); 
 
         console.log(agenda.getTasks());
-        
+
         list.agenda = agenda;
+        list.printSaved();
 
         document.querySelector("#btnAdd").addEventListener("click", () => {
             let form = document.querySelector("#form");
@@ -41,7 +42,8 @@ class Main {
                 dL = task.getDaysLeft();
                 
                 let taskToTable = agenda.addTask(objTask, sDueDate, dL);
-                list.printTask(taskToTable);
+                
+                list.printTask(task);
             }
 
             form.classList.add("was-validated");

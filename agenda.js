@@ -7,6 +7,10 @@ export default class Agenda {
         //localStorage.removeItem("tasks");
     }
 
+    get tasks() {
+        return this._tasks;
+    }
+
     getTasks() {
         let tasks = JSON.parse(localStorage.getItem("tasks"));
         this._tasks = tasks;

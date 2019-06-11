@@ -95,7 +95,7 @@ select {
 #header {
     font-family: "Montserrat";
     font-weight: bold;
-    color: #1C4E68;
+    color: #360D0D;
 }
 
 #agenda {
@@ -104,8 +104,13 @@ select {
 }
 
 th {
-    background-color: #1C4E68;
+    background-color: #360D0D;
     color: white;
+}
+
+td {
+    font-family: "Montserrat";
+    text-align: center;
 }
 
 #containerBody {
