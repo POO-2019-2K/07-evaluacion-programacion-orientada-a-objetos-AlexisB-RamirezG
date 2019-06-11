@@ -1,5 +1,5 @@
 body {
-    background-color: #FBFCDE;
+    background-color: #1C4E68;
 }
 
 #col-left {
@@ -95,5 +95,23 @@ select {
 #header {
     font-family: "Montserrat";
     font-weight: bold;
-    color: #360D0D;
+    color: #1C4E68;
+}
+
+#agenda {
+    background-color: white;
+    width: 100%;
+}
+
+th {
+    background-color: #1C4E68;
+    color: white;
+    width: 100%;
+}
+
+#containerBody {
+    background-color: #FBFCDE;
+    width: 80%;
+    margin-left: 10%;
+    height: 100vh;
 }
