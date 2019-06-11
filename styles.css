@@ -106,7 +106,6 @@ select {
 th {
     background-color: #1C4E68;
     color: white;
-    width: 100%;
 }
 
 #containerBody {
@@ -114,4 +113,9 @@ th {
     width: 80%;
     margin-left: 10%;
     height: 100vh;
+}
+
+.invalid-feedback {
+    color: yellow;
+    margin-left: 12px;
 }

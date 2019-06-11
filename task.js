@@ -13,11 +13,42 @@ export default class Task {
         return this._dueDate;
     }
 
+    get daysLeft() {
+        return this._daysLeft;
+    }
+
     set name(name) {
         this._name = name;
     }
 
     set dueDate(dueDate) {
         this._dueDate = dueDate;
+    }
+
+    set daysLeft(daysLeft) {
+        this._daysLeft = daysLeft;
+    }
+
+    getStringDueDate() {
+        let date =
+            this._dueDate.getDate() +
+            "/" +
+            this._dueDate.getMonth() +
+            "/" +
+            this._dueDate.getFullYear();
+
+        return date;
+    }
+
+    getDaysLeft() {
+        let day = 24 * 60 * 60 * 1000;
+        let differenceMs = this._dueDate - new Date();
+        let daysLeft = Math.trunc(differenceMs / day);
+        if(daysLeft === -0) {
+            return 0;
+        }
+        daysLeft++;
+
+        return daysLeft;
     }
 }
