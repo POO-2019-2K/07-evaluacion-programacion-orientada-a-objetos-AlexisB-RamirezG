@@ -27,6 +27,10 @@ export default class List {
 
     printTask(task) {
         this._addToTable(task);
+        window.Swal.fire({
+            type: "success",
+            title: "Contact added!",
+        });
     }
 
     _addToTable(task) {

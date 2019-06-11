@@ -9,6 +9,7 @@ class Main {
         let agenda = new Agenda(); 
 
         console.log(agenda.getTasks());
+        agenda.sortByDaysLeft();
 
         list.agenda = agenda;
         list.printSaved();

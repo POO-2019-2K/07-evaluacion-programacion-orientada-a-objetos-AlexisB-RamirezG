@@ -13,8 +13,34 @@ export default class Agenda {
 
     getTasks() {
         let tasks = JSON.parse(localStorage.getItem("tasks"));
+        if (tasks === null) {
+            this._tasks = [];
+            return this._tasks;
+        }
         this._tasks = tasks;
-        return tasks;
+        this._tasks.forEach((e, index) => {
+            e.dueDate = new Date(e.dueDate);
+            this._getData(new Task (e), index);
+        });
+        return this._tasks;
+    }
+
+    _getData(e, index) {
+        e.daysLeft = e.getDaysLeft();
+        let objTask = {
+            name: e.name,
+            dueDate: e.dueDate,
+            daysLeft: e.daysLeft
+        }
+        this._tasks.splice(index, 1, objTask);
+    }
+
+    sortByDaysLeft() {
+        this.getTasks();
+        this._tasks.sort(function (a, b) {
+            return a.daysLeft - b.daysLeft;
+        });
+        return this._contacts;
     }
 
     findTask(task) {
@@ -41,30 +67,6 @@ export default class Agenda {
         this._tasks.push(objTask);
         localStorage.setItem("tasks", JSON.stringify(this._tasks));
         console.log(this._tasks);
-    }
-
-    getTasks() {
-        let tasks = JSON.parse(localStorage.getItem("tasks"));
-        if (tasks === null) {
-            this._tasks = [];
-            return this._tasks;
-        }
-        this._tasks = tasks;
-        this._tasks.forEach((e, index) => {
-            e.dueDate = new Date(e.dueDate);
-            this._getData(new Task (e), index);
-        });
-        return this._tasks;
-    }
-
-    _getData(e, index) {
-        e.daysLeft = e.getDaysLeft();
-        let objTask = {
-            name: e.name,
-            dueDate: e.dueDate,
-            daysLeft: e.daysLeft
-        }
-        this._tasks.splice(index, 1, objTask);
     }
 
     deleteTask(task) {
