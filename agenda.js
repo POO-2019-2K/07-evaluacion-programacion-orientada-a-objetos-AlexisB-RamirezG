@@ -66,4 +66,10 @@ export default class Agenda {
         }
         this._tasks.splice(index, 1, objTask);
     }
+
+    deleteTask(task) {
+        let index = this.findTask(task);
+        this._tasks.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(this._tasks));
+    }
 }

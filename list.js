@@ -75,7 +75,12 @@ export default class List {
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.value) {
-                    
+                    this._agenda.deleteTask(task);
+                    this.printSaved();
+                    window.Swal.fire({
+                        type: "success",
+                        title: "Task deleted!",
+                    });
                 }
             });
         });
