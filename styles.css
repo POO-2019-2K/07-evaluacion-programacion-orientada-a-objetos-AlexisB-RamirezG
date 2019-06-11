@@ -106,11 +106,13 @@ select {
 th {
     background-color: #360D0D;
     color: white;
+    text-align: center;
 }
 
 td {
     font-family: "Montserrat";
     text-align: center;
+    font-size: 25px;
 }
 
 #containerBody {
@@ -123,4 +125,17 @@ td {
 .invalid-feedback {
     color: yellow;
     margin-left: 12px;
+}
+
+#btnDelete {
+    background-color: rgb(185, 12, 12);
+    border-radius: 1000px;
+    color: white;
+    margin-left: 20px;
+}
+
+#btnEdit {
+    background-color: #1C4E68;
+    border-radius: 1000px;
+    color: white;
 }

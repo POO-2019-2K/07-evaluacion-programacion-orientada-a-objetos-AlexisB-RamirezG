@@ -26,18 +26,12 @@ export default class List {
     }
 
     printTask(task) {
-        console.log(task);
         this._addToTable(task);
     }
 
     _addToTable(task) {
         let row = this._tableAgenda.insertRow(-1),
-            cell = row.insertCell(0),
-            editButton = document.createElement("input"),
-            deleteButton = document.createElement("input");
-
-        this._giveAtribbutesEdit(editButton, task);
-        this._giveAtribbutesDelete(deleteButton, task);
+            cell = row.insertCell(0);
 
         cell.appendChild(document.createTextNode(task.name));
         cell = row.insertCell(1);
@@ -45,20 +39,26 @@ export default class List {
         cell = row.insertCell(2);
         cell.appendChild(document.createTextNode(task.getDaysLeft()));
         cell = row.insertCell(3);
-        cell.appendChild(editButton);
-        cell.appendChild(deleteButton);
+        this._giveAtribbutesEdit(task, cell);
+        this._giveAtribbutesDelete(task, cell);
 
         this._numberTasks++;
     }
 
-    _giveAtribbutesEdit(editButton, task) {
+    _giveAtribbutesEdit(task, cell) {
+        let editButton = document.createElement("input");
+        cell.appendChild(editButton);
+
         editButton.type = "button";
         editButton.value = "Edit";
         editButton.className = "btn";
         editButton.id = "btnEdit";
     }
     
-    _giveAtribbutesDelete(deleteButton, task) {
+    _giveAtribbutesDelete(task, cell) {
+        let deleteButton = document.createElement("input");
+        cell.appendChild(deleteButton);
+
         deleteButton.type = "button";
         deleteButton.value = "Delete";
         deleteButton.className = "btn";

@@ -38,11 +38,9 @@ class Main {
                 }
                 
                 let task = new Task(objTask),
-                sDueDate = task.getStringDueDate(),
                 dL = task.getDaysLeft();
                 
-                let taskToTable = agenda.addTask(objTask, sDueDate, dL);
-                
+                let taskToTable = agenda.addTask(objTask, dL);
                 list.printTask(task);
             }
 

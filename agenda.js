@@ -32,16 +32,15 @@ export default class Agenda {
         return foundAt;
     }
 
-    addTask(task, sDueDate, dL) {
+    addTask(task, dL) {
         let objTask = {
             name: task.name,
             dueDate: task.dueDate,
-            sDueDate,
-            dL
+            daysLeft: dL
         };
-        this._tasks.push(task);
+        this._tasks.push(objTask);
         localStorage.setItem("tasks", JSON.stringify(this._tasks));
-        return objTask;
+        console.log(this._tasks);
     }
 
     getTasks() {
