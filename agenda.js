@@ -20,7 +20,7 @@ export default class Agenda {
         this._tasks = tasks;
         this._tasks.forEach((e, index) => {
             e.dueDate = new Date(e.dueDate);
-            this._getData(new Task (e), index);
+            this._getData(new Task(e), index);
         });
         return this._tasks;
     }
@@ -66,7 +66,7 @@ export default class Agenda {
             return foundAt;
         }
         this._tasks.forEach((e, index) => {
-            if (e.name === task.name && e.email === task.email) {
+            if (e.name === task.name) {
                 foundAt = index;
                 return;
             }
@@ -89,6 +89,19 @@ export default class Agenda {
     deleteTask(task) {
         let index = this.findTask(task);
         this._tasks.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(this._tasks));
+    }
+
+    saveEdit(task, editedTask) {
+        this.getTasks();
+        let index = this.findTask(task);
+        editedTask.dueDate = editedTask.dueDate.split("-");
+        let dueDate = new Date(editedTask.dueDate[0], editedTask.dueDate[1] - 1, editedTask.dueDate[2]);
+        let objNewTask = {
+            name: editedTask.name,
+            dueDate
+        }
+        this._tasks[index] = objNewTask;
         localStorage.setItem("tasks", JSON.stringify(this._tasks));
     }
 }

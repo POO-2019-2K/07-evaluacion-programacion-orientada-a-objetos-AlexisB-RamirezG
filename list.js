@@ -32,7 +32,7 @@ export default class List {
             type: "success",
             title: "Success!",
             text: "Task has been registered!"
-          })
+        })
     }
 
     printByName() {
@@ -87,23 +87,33 @@ export default class List {
         row.cells[1].innerHTML = "";
         row.cells[1].appendChild(inputDueDate);
 
-        let btnSave = document.createElement("input");
-        btnSave.type = "button";
-        btnSave.value = "Grabar";
-        btnSave.className = "btn btn-success";
-        btnSave.addEventListener("click", () => {
-            let newEmployee = {
-                name: iName.value,
-                email: iEmail.value,
-                birthday: iDate.value
-            };
+        let saveButton = document.createElement("i"),
+            divSave = document.createElement("div");
 
-            this._saveEdit(row, employee, newEmployee);
+        divSave.id = "divSave";
+        divSave.classList = "float-left";
+        saveButton.classList = "fas fa-save";
+
+        divSave.appendChild(saveButton);
+        saveButton.addEventListener("click", () => {
+            let editedTask = {
+                name: inputName.value,
+                dueDate: inputDueDate.value
+            }
+
+            this._agenda.saveEdit(task, editedTask);
+            this._agenda.getTasks();
+            this._agenda.sortByDaysLeft();
+            this.printSaved();
+            Swal.fire({
+                type: "success",
+                title: "Changes have been changed!",
+            });
         });
 
         let cancelButton = document.createElement("i"),
-        divCancel = document.createElement("div");
-       
+            divCancel = document.createElement("div");
+
         divCancel.id = "divCancel";
         divCancel.classList = "float-right";
         cancelButton.classList = "fas fa-window-close";
@@ -114,7 +124,7 @@ export default class List {
         });
 
         row.cells[3].innerHTML = "";
-        row.cells[3].appendChild(btnSave);
+        row.cells[3].appendChild(divSave);
         row.cells[3].appendChild(divCancel);
     }
 
