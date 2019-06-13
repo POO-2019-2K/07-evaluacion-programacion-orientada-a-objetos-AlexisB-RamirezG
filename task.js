@@ -44,11 +44,17 @@ export default class Task {
         let day = 24 * 60 * 60 * 1000;
         let differenceMs = this._dueDate - new Date();
         let daysLeft = Math.trunc(differenceMs / day);
-        if(daysLeft === -0) {
+        if ((differenceMs/day) < 0 && (differenceMs/day) > -1) {
             return 0;
         }
         daysLeft++;
 
         return daysLeft;
+    }
+
+    getDueDateForDate() {
+        let date = this._dueDate.getFullYear() + "-" + (this._dueDate.getMonth() + 1) + "-" + (this._dueDate.getDate());
+
+        return date;
     }
 }

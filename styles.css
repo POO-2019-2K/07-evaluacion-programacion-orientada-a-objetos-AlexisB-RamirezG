@@ -112,14 +112,14 @@ th {
 td {
     font-family: "Montserrat";
     text-align: center;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 #containerBody {
     background-color: #FBFCDE;
     width: 80%;
     margin-left: 10%;
-    height: 100vh;
+    
 }
 
 .invalid-feedback {
@@ -154,3 +154,29 @@ td {
 #btnDL {
     margin-left: 10px;
 }
+
+#divDelete {
+    background-color: rgb(185, 37, 37);
+    color: white;
+    width: 6vh;
+    height: 6vh;
+    padding-top: 10px;
+    padding-right: 1px; 
+    border-radius: 1000px;
+    font-size: 18px;
+    margin-right: 30px;
+}
+
+#divEdit {
+    background-color: #1C4E68;
+    color: white;
+    width: 6vh;
+    height: 6vh;
+    padding-top: 10px;
+    padding-right: 1px; 
+    border-radius: 1000px;
+    font-size: 18px;
+}
+
+
+

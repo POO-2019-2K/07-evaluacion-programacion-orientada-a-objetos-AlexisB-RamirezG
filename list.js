@@ -9,7 +9,7 @@ export default class List {
 
     set agenda(agenda) {
         this._agenda = agenda;
-    } 
+    }
 
     printSaved() {
         this._clearTable();
@@ -45,30 +45,83 @@ export default class List {
         cell = row.insertCell(2);
         cell.appendChild(document.createTextNode(task.getDaysLeft()));
         cell = row.insertCell(3);
-        this._giveAtribbutesEdit(task, cell);
+        this._giveAtribbutesEdit(task, cell, row);
         this._giveAtribbutesDelete(task, cell);
 
         this._numberTasks++;
     }
 
-    _giveAtribbutesEdit(task, cell) {
-        let editButton = document.createElement("input");
-        cell.appendChild(editButton);
+    _giveAtribbutesEdit(task, cell, row) {
+        let editButton = document.createElement("i"),
+            divEdit = document.createElement("div");
 
-        editButton.type = "button";
-        editButton.value = "Edit";
-        editButton.className = "btn";
-        editButton.id = "btnEdit";
+        divEdit.id = "divEdit";
+        divEdit.className = "float-left"
+        editButton.classList = "fas fa-pencil-alt";
+
+        divEdit.appendChild(editButton);
+        cell.appendChild(divEdit);
+
+        editButton.addEventListener("click", () => {
+            this._editRow(task, row);
+        });
     }
-    
-    _giveAtribbutesDelete(task, cell) {
-        let deleteButton = document.createElement("input");
-        cell.appendChild(deleteButton);
 
-        deleteButton.type = "button";
-        deleteButton.value = "Delete";
-        deleteButton.className = "btn";
-        deleteButton.id = "btnDelete";
+    _editRow(task, row) {
+        let inputName = document.createElement("input");
+        inputName.type = "text";
+        inputName.value = task.name;
+
+        row.cells[0].innerHTML = "";
+        row.cells[0].appendChild(inputName);
+
+        let inputDueDate = document.createElement("input");
+        inputDueDate.type = "date";
+        let dueDate = task.getDueDateForDate();
+        inputDueDate.value = dueDate;
+
+        row.cells[1].innerHTML = "";
+        row.cells[1].appendChild(inputDueDate);
+
+        let btnSave = document.createElement("input");
+        btnSave.type = "button";
+        btnSave.value = "Grabar";
+        btnSave.className = "btn btn-success";
+        btnSave.addEventListener("click", () => {
+            let newEmployee = {
+                name: iName.value,
+                email: iEmail.value,
+                birthday: iDate.value
+            };
+
+            this._saveEdit(row, employee, newEmployee);
+        });
+
+        let btnCancel = document.createElement("input");
+        btnCancel.type = "button";
+        btnCancel.value = "Cancelar";
+        btnCancel.className = "btn btn-danger";
+        btnCancel.addEventListener("click", () => {
+            this._cancelEdit(row, employee);
+        });
+
+        row.cells[4].innerHTML = "";
+        row.cells[4].appendChild(btnSave);
+
+        row.cells[5].innerHTML = "";
+        row.cells[5].appendChild(btnCancel);
+    }
+
+    _giveAtribbutesDelete(task, cell) {
+        let deleteButton = document.createElement("i"),
+            divDelete = document.createElement("div");
+
+        divDelete.id = "divDelete";
+        divDelete.classList = "float-right";
+        deleteButton.classList = "fas fa-backspace";
+
+        divDelete.appendChild(deleteButton);
+        cell.appendChild(divDelete);
 
         deleteButton.addEventListener("click", () => {
             window.Swal.fire({
