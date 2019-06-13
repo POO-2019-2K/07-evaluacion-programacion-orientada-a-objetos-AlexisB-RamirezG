@@ -31,9 +31,9 @@ export default class Task {
 
     getStringDueDate() {
         let date =
-            this._dueDate.getDate() +
+            this._get2NumberDigit(this._dueDate.getDate()) +
             "/" +
-            this._dueDate.getMonth() +
+            this._get2NumberDigit((Number(this._dueDate.getMonth())+1)) +
             "/" +
             this._dueDate.getFullYear();
 
@@ -53,7 +53,7 @@ export default class Task {
     }
 
     getDueDateForDate() {
-        let date = this._dueDate.getFullYear() + "-" + this._get2NumberDigit(this._dueDate.getMonth()) + "-" + this._get2NumberDigit(this._dueDate.getDate());
+        let date = this._dueDate.getFullYear() + "-" + this._get2NumberDigit(this._dueDate.getMonth()+1) + "-" + this._get2NumberDigit(this._dueDate.getDate());
     
         return date;
     }

@@ -28,6 +28,11 @@ export default class List {
     printTask() {
         this._agenda.sortByDaysLeft();
         this.printSaved();
+        Swal.fire({
+            type: "success",
+            title: "Success!",
+            text: "Task has been registered!"
+          })
     }
 
     printByName() {
@@ -96,19 +101,21 @@ export default class List {
             this._saveEdit(row, employee, newEmployee);
         });
 
-        let btnCancel = document.createElement("input");
-        btnCancel.type = "button";
-        btnCancel.value = "Cancelar";
-        btnCancel.className = "btn btn-danger";
-        btnCancel.addEventListener("click", () => {
-            this._cancelEdit(row, employee);
+        let cancelButton = document.createElement("i"),
+        divCancel = document.createElement("div");
+       
+        divCancel.id = "divCancel";
+        divCancel.classList = "float-right";
+        cancelButton.classList = "fas fa-window-close";
+
+        divCancel.appendChild(cancelButton);
+        cancelButton.addEventListener("click", () => {
+            this.printSaved();
         });
 
-        row.cells[4].innerHTML = "";
-        row.cells[4].appendChild(btnSave);
-
-        row.cells[5].innerHTML = "";
-        row.cells[5].appendChild(btnCancel);
+        row.cells[3].innerHTML = "";
+        row.cells[3].appendChild(btnSave);
+        row.cells[3].appendChild(divCancel);
     }
 
     _giveAtribbutesDelete(task, cell) {

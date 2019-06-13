@@ -155,7 +155,7 @@ td {
     margin-left: 10px;
 }
 
-#divDelete {
+#divDelete, #divCancel {
     background-color: rgb(185, 37, 37);
     color: white;
     width: 6vh;
@@ -177,6 +177,8 @@ td {
     border-radius: 1000px;
     font-size: 18px;
 }
+
+
 
 
 
