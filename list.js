@@ -77,8 +77,7 @@ export default class List {
 
         let inputDueDate = document.createElement("input");
         inputDueDate.type = "date";
-        let dueDate = task.getDueDateForDate();
-        inputDueDate.value = dueDate;
+        inputDueDate.value = task.getDueDateForDate();
 
         row.cells[1].innerHTML = "";
         row.cells[1].appendChild(inputDueDate);
