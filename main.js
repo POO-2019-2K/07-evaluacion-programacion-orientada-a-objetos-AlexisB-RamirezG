@@ -49,7 +49,7 @@ class Main {
         });
 
         document.querySelector("#btnDL").addEventListener("click", () => {
-            list.printTask();
+            list.printByDL();
         });
 
         document.querySelector("#btnName").addEventListener("click", () => {

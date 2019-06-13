@@ -31,8 +31,13 @@ export default class List {
         Swal.fire({
             type: "success",
             title: "Success!",
-            text: "Task has been registered!"
-        })
+            text: "The task has been registered!"
+        });
+    }
+
+    printByDL() {
+        this._agenda.sortByDaysLeft();
+        this.printSaved();
     }
 
     printByName() {
@@ -57,15 +62,15 @@ export default class List {
     }
 
     _giveAtribbutesEdit(task, cell, row) {
-        let editButton = document.createElement("i"),
-            divEdit = document.createElement("div");
+        let editIcon = document.createElement("i"),
+            editButton = document.createElement("div");
 
-        divEdit.id = "divEdit";
-        divEdit.className = "float-left"
-        editButton.classList = "fas fa-pencil-alt";
+        editButton.id = "divEdit";
+        editButton.className = "float-left"
+        editIcon.classList = "fas fa-pencil-alt";
 
-        divEdit.appendChild(editButton);
-        cell.appendChild(divEdit);
+        editButton.appendChild(editIcon);
+        cell.appendChild(editButton);
 
         editButton.addEventListener("click", () => {
             this._editRow(task, row);
@@ -87,14 +92,14 @@ export default class List {
         row.cells[1].innerHTML = "";
         row.cells[1].appendChild(inputDueDate);
 
-        let saveButton = document.createElement("i"),
-            divSave = document.createElement("div");
+        let saveIcon = document.createElement("i"),
+            saveButton = document.createElement("div");
 
-        divSave.id = "divSave";
-        divSave.classList = "float-left";
-        saveButton.classList = "fas fa-save";
+        saveButton.id = "divSave";
+        saveButton.classList = "float-left";
+        saveIcon.classList = "fas fa-save";
 
-        divSave.appendChild(saveButton);
+        saveButton.appendChild(saveIcon);
         saveButton.addEventListener("click", () => {
             let editedTask = {
                 name: inputName.value,
@@ -111,33 +116,33 @@ export default class List {
             });
         });
 
-        let cancelButton = document.createElement("i"),
-            divCancel = document.createElement("div");
+        let cancelIcon = document.createElement("i"),
+            cancelButton = document.createElement("div");
 
-        divCancel.id = "divCancel";
-        divCancel.classList = "float-right";
-        cancelButton.classList = "fas fa-window-close";
+        cancelButton.id = "divCancel";
+        cancelButton.classList = "float-right";
+        cancelIcon.classList = "fas fa-window-close";
 
-        divCancel.appendChild(cancelButton);
+        cancelButton.appendChild(cancelIcon);
         cancelButton.addEventListener("click", () => {
             this.printSaved();
         });
 
         row.cells[3].innerHTML = "";
-        row.cells[3].appendChild(divSave);
-        row.cells[3].appendChild(divCancel);
+        row.cells[3].appendChild(saveButton);
+        row.cells[3].appendChild(cancelButton);
     }
 
     _giveAtribbutesDelete(task, cell) {
-        let deleteButton = document.createElement("i"),
-            divDelete = document.createElement("div");
+        let deleteIcon = document.createElement("i"),
+            deleteButton = document.createElement("div");
 
-        divDelete.id = "divDelete";
-        divDelete.classList = "float-right";
-        deleteButton.classList = "fas fa-backspace";
+        deleteButton.id = "divDelete";
+        deleteButton.classList = "float-right";
+        deleteIcon.classList = "fas fa-backspace";
 
-        divDelete.appendChild(deleteButton);
-        cell.appendChild(divDelete);
+        deleteButton.appendChild(deleteIcon);
+        cell.appendChild(deleteButton);
 
         deleteButton.addEventListener("click", () => {
             window.Swal.fire({
